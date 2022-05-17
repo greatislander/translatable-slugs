@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrganizationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::multilingual('/organizations', [OrganizationController::class, 'index'])
+    ->name('organizations.index');
+
+Route::multilingual('/organizations/{organization}', [OrganizationController::class, 'show'])
+    ->name('organizations.show');
